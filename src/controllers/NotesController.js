@@ -23,6 +23,7 @@ class NotesController {
                 .whereLike("notes.title", `%${title}%`)
                 .whereIn("name", filterTags)
                 .innerJoin("notes", "notes.id", "tags.note_id")
+                .groupBy("note.id")
                 .orderBy("title")
         } else {
             notes = await knex("notes").where({ user_id }).whereLike("title", `%${title}%`).orderBy("title")
@@ -33,12 +34,12 @@ class NotesController {
             const noteTags = userTags.filter(tag => tag.note_id === note.id)
 
             return {
-                ...notes,
+                ...note,
                 tags: noteTags
             }
         })
 
-        return response.json({ notesWithTags })
+        return response.json(notesWithTags)
     }
 
     async create(request, response) {
