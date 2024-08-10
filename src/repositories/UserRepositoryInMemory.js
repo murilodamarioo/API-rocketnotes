@@ -39,7 +39,7 @@ class UserRepositoryInMemory {
 
     if (index !== -1) {
       this.users[index] = { ...this.users[index], ...user }
-      return true
+      return this.users[index]
     }
 
     return false

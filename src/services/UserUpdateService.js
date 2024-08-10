@@ -15,7 +15,7 @@ class UserUpdateService {
 
     const userWithUpdatedEmail = await this.userRespository.findByEmail(email)
 
-    if (userWithUpdatedEmail && userWithUpdatedEmail.id !== user.id) {
+    if (userWithUpdatedEmail && userWithUpdatedEmail.id !== user.user_id) {
       throw new AppError("Este email já está em uso.")
     }
 
