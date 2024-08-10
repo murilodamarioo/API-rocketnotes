@@ -8,7 +8,7 @@ class UserUpdateService {
 
   async execute({ name, email, password, old_password, user_id }) {
     const user = await this.userRespository.findById(user_id)
-
+  
     if (!user) {
       throw new AppError("Usuário não encontrado")
     }
