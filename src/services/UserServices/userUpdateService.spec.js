@@ -1,6 +1,6 @@
-const UserRepositoryInMemory = require("../repositories/UserRepositoryInMemory")
+const UserRepositoryInMemory = require("../../repositories/UserRepositoryInMemory")
 const UserUpdateService = require("./UserUpdateService")
-const AppError = require("../utils/AppError")
+const AppError = require("../../utils/AppError")
 
 describe('UserUpdateService', () => {
   let userRepositoryInMemory = null
